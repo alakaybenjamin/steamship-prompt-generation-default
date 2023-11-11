@@ -1,8 +1,8 @@
 {
 	"type": "plugin",
-	"handle": "prompt-generation-default",
+	"handle": "Open AI Compatible ",
 	"version": "1.0.0",
-	"description": "Complete prompts and generate text with OpenAI.",
+	"description": "OpenAI-Compatible Server",
 	"author": "",
 	"entrypoint": "src.api.handler",
 	"public": true,
@@ -21,7 +21,7 @@
 		"openai_api_key": {
 			"type": "string",
 			"description": "An openAI API key to use. If left default, will use Steamship's API key.",
-			"default": ""
+			"default": "EMPTY"
 		},
 		"max_words": {
 			"type": "number",
@@ -31,7 +31,7 @@
 		"model": {
 			"type": "string",
 			"description": "The OpenAI model to use.  Can be a pre-existing fine-tuned model.",
-			"default": "text-davinci-003"
+			"default": "HuggingFaceH4/zephyr-7b-beta"
 		},
 		"temperature": {
 			"type": "number",
@@ -109,7 +109,8 @@
 			"GPT-3",
 			"Prompt Completion",
 			"LLM",
-			"GPT"
+			"GPT",
+			"Open Source"
 		]
 	}
 }
