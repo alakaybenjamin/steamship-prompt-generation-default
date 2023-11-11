@@ -32,6 +32,7 @@ VALID_MODELS_FOR_BILLING = [
     'text-davinci-003',
     'code-cushman-001',
     'gpt-3.5-turbo',
+    'HuggingFaceH4/zephyr-7b-beta'
     'gpt-4'
 ]
 
@@ -48,9 +49,10 @@ class PromptGenerationPlugin(Tagger):
             "",
             description="An openAI API key to use. If left default, will use Steamship's API key.",
         )
+        openai_api_base: str = "https://gvv3l760cd2ouk-8000.proxy.runpod.net/v1"
         max_words: int = Field(description="The maximum number of words to generate per request")
         model: Optional[str] = Field(
-            "text-davinci-003",
+            "HuggingFaceH4/zephyr-7b-beta",
             description="The OpenAI model to use.  Can be a pre-existing fine-tuned model.",
         )
         temperature: Optional[float] = Field(
@@ -116,7 +118,7 @@ class PromptGenerationPlugin(Tagger):
             raise SteamshipError(
                 f"This plugin cannot be used with model {self.config.model} while using Steamship's API key. Valid models are {VALID_MODELS_FOR_BILLING}")
 
-        if self.config.model.startswith("gpt-3.5-turbo"):
+        if self.config.model.startswith("HuggingFaceH4/zephyr-7b-beta"):
             self.llm = openai.ChatCompletion
         else:
             self.llm = openai.Completion
