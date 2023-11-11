@@ -46,7 +46,7 @@ class PromptGenerationPlugin(Tagger):
 
     class PromptGenerationPluginConfig(Config):
         openai_api_key: str = Field(
-            "",
+            "EMPTY",
             description="An openAI API key to use. If left default, will use Steamship's API key.",
         )
         openai_api_base: str = "https://gvv3l760cd2ouk-8000.proxy.runpod.net/v1"
