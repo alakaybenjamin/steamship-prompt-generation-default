@@ -260,7 +260,7 @@ class PromptGenerationPlugin(Tagger):
         user_id = self.context.user_id if self.context is not None else "testing"
 
         if self._flagged([prompts]):
-            raise SteamshipError("Sorry, this content is flagged as inappropriate by OpenAI.")
+            raise SteamshipError("Sorry, this content is  flagged as inappropriate by OpenAI.")
 
         generated_texts, usage_reports = self._complete_text(prompts=prompts, user=user_id)
         if self.config.moderate_output and self._flagged(generated_texts):
